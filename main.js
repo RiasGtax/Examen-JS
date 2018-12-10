@@ -35,6 +35,22 @@
 
     var jerry = Object.create(Jerry());
 
+    function Universo() {
+        return {
+            universos: [],
+            length: 0,
+            addUniverse: function(newUniverse) {
+                this.universos[this.length + 1] = newUniverse;
+                this.updateLength(); 
+            },
+            updateLength: function() {
+                length = this.universos.length;
+            }
+        }
+    }
+
+    var universo = Object.create(Universo());
+
 /**
  * Crea el objeto Rick
  */
@@ -99,9 +115,9 @@ console.assert(jerry.speak() == "Tengo una colección de monedas antiguas raras!
 //  * Crea el objeto universo
 //  */
 
-// console.assert(universo);
-// console.assert(Object.getPrototypeOf(universo) != Array.prototype);
-// console.assert(universo.length == 0);
+console.assert(universo);
+console.assert(Object.getPrototypeOf(universo) != Array.prototype);
+console.assert(universo.length == 0);
 
 // /**
 //  * Crea la primera dimensión, el `Array` mundo `Tierra`, 
