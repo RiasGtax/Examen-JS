@@ -15,7 +15,8 @@
         return {
             id: "C-137",
             ondas: "altas",
-            habla: "Es Rick-dículo!"
+            habla: "Es Rick-dículo!",
+            arma: null
         }
     };
 
@@ -146,11 +147,35 @@
     //  * Rick dispara la pistola y se añade al universo la dimensión "Fart"
     //  *  */
 
-    // console.assert(gun);
+    function Gun() {
+        return {
+            historial: [],
+            addToHistorial: function(dimension) {
+                this.historial[this.historial.length] = dimension; 
+            },
+            dispara: function(universo, universe, items) {
+                this.addToHistorial(universe);
+                universo.addUniverse(universe, items);
+            },
+            scan: function() {
+                return this.historial.reverse();
+            }
+        }
+    }
+
+    var gun = generateObject(Gun());
+    gun.addToHistorial("Tierra");
+
+    console.log(gun.scan());
+
+    console.assert(gun);
     // console.assert(gun.historial.length == 1);
 
+    protoRick.arma = gun;
+    protoRick.arma.dispara(universo, "Fart", []);
+
     // console.assert("Fart" in universo);
-    // console.assert(universo.length == 2);
+    console.assert(universo.length == 2);
 
     // /**
     //  * Todos SALVO Jerry cruzan a la dimensión "Fart".
@@ -172,9 +197,8 @@
     //  * antigua: Fart, Tierra.
     //  */
 
-    // console.log(gun.scan());
-    // console.assert(gun.historial.length == 2);
-
+    console.log(gun.scan());
+    console.assert(gun.historial.length == 2);
 
     // /**
     //  * Rick dispara la pistola y se añade al universo la dimensión "Coaches".
