@@ -2,6 +2,11 @@
 /** 
  * Importa los módulos de tus clases 
  */
+
+    function generateObject(input) {
+        return Object.create(input);
+    }
+
     function Rick() {
         return {
             id: "C-137",
@@ -10,7 +15,7 @@
         }
     };
 
-    var protoRick = Object.create(Rick());
+    var protoRick = generateObject(Rick());
 
     function Morty() {
         return {
@@ -21,7 +26,7 @@
         }
     };
 
-    var protoMorty = Object.create(Morty());
+    var protoMorty = generateObject(Morty());
 
     function Jerry() {
         return {
@@ -33,7 +38,7 @@
         }
     };
 
-    var jerry = Object.create(Jerry());
+    var jerry = generateObject(Jerry());
 
     function Universo() {
         return {
@@ -49,7 +54,7 @@
         }
     }
 
-    var universo = Object.create(Universo());
+    var universo = generateObject(Universo());
 
 /**
  * Crea el objeto Rick
@@ -199,6 +204,18 @@ console.assert(universo.length == 0);
 // /**
 //  * Crea un Doofus Rick segun se indica en el README
 //  */
+
+function Doofous() {
+    return {
+        combined: {},
+        generateDoofous: function() {
+            return this.combined;
+        }
+    }
+}
+
+var doofous = generateObject(Doofous().generateDoofous());
+doofous.id = "J-19-Z7";
 
 // console.assert(doofous);
 // console.assert(doofous.id == "J-19-Z7");
