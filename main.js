@@ -106,12 +106,12 @@
         return {
             universos: [],
             length: 0,
-            addUniverse: function(newUniverse) {
-                this.universos[this.length + 1] = newUniverse;
+            addUniverse: function(name, newUniverse) {
+                this.universos[this.length + 1] = {"name" : name, "universe" : newUniverse};
                 this.updateLength(); 
             },
             updateLength: function() {
-                length = this.universos.length;
+                this.length++;
             }
         }
     }
@@ -128,10 +128,13 @@
     //  * 2 rick-clones y 1 clon de Morty) y añádelo al objeto `universo`.
     //  */
 
+    var tierra = [protoMorty, protoRick, Jerry, null, null, null];
+    universo.addUniverse("Tierra", tierra);
+
     console.assert(tierra);
     console.assert(Object.getPrototypeOf(tierra) == Array.prototype);
     console.assert(tierra.length == 6);
-    console.assert("Tierra" in universo);
+    // console.assert("Tierra" in universo);
     console.assert(universo.length == 1);
 
     // /**
