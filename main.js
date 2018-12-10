@@ -12,6 +12,29 @@
 
     var protoRick = Object.create(Rick());
 
+    function Morty() {
+        return {
+            id: "earthMorty",
+            ondas: "bajas",
+            partner : null,
+            habla: "Oohh man!"
+        }
+    };
+
+    var protoMorty = Object.create(Morty());
+
+    function Jerry() {
+        return {
+            id: "Jerry",
+            monedas: ["R2-D2", 1, 2, 3],
+            speak : function() {
+                return "Tengo una colección de monedas antiguas raras!";
+            }
+        }
+    };
+
+    var jerry = Object.create(Jerry());
+
 /**
  * Crea el objeto Rick
  */
@@ -25,22 +48,25 @@ console.assert(protoRick.habla == "Es Rick-dículo!");
  * Crea el objeto Morty
  */
 
-// console.assert(protoMorty);
-// console.assert(protoMorty.id == "earthMorty");
-// console.assert(protoMorty.ondas == "bajas");
-// console.assert(protoMorty.partner == protoRick);
-// console.assert(protoMorty.habla == "Oohh man!");
+console.assert(protoMorty);
+console.assert(protoMorty.id == "earthMorty");
+console.assert(protoMorty.ondas == "bajas");
+
+protoMorty.partner = protoRick;
+
+console.assert(protoMorty.partner == protoRick);
+console.assert(protoMorty.habla == "Oohh man!");
 
 
 // /**
 //  * Crea el objeto Jerry
 //  */
 
-// console.assert(jerry);
-// console.assert(jerry.id = "Jerry");
-// console.assert(jerry.monedas.length == 4);
-// console.assert(jerry.monedas[0] == "R2-D2");
-// console.assert(jerry.speak() == "Tengo una colección de monedas antiguas raras!");
+console.assert(jerry);
+console.assert(jerry.id = "Jerry");
+console.assert(jerry.monedas.length == 4);
+console.assert(jerry.monedas[0] == "R2-D2");
+console.assert(jerry.speak() == "Tengo una colección de monedas antiguas raras!");
 
 // /**
 //  * Crea 2 Rick-clones y 1 clon de Morty
