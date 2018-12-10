@@ -204,8 +204,10 @@
     //  * Rick dispara la pistola y se añade al universo la dimensión "Coaches".
     //  */
 
+    protoRick.arma.dispara(universo, "Coach", []);
+
     // console.assert("Coach" in universo);
-    // console.assert(universo.length == 3);
+    console.assert(universo.length == 3);
 
     // /**
     //  * Los cuatro cruzan a la dimensión "Coach".
